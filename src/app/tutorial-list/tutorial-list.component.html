@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="row">
+
+
+        <div class="col-sm-3 col-md-4 col-lg-4" id="tutlist">
+
+            <h2>Articles List</h2>
+
+            <div>
+                <input type="text" placeholder="Search Tutorials using title" [(ngModel)]="tutorial">
+                <button (click)="searchByTitle()">Search</button>
+            </div>
+
+            <div *ngIf="!tutorialsList[0] && !error ">Loading.....</div>
+            <div *ngIf="error">Server error:{{error.name}}</div>
+            <div *ngFor="let t of tutorialsList; let i=i ndex " [class.active]="i==currentIndex " (click)="setActiveTutorial(t,i) ">
+                <div> {{t.title}}
+                </div>
+
+            </div>
+
+
+            <!--  <button class="btn btn-sucess " (click)="clearAllTutorials() ">Clear All Tutorails</button>-->
+        </div>
+        <div class="col-sm-9 col-md-8 col-lg-8 " *ngIf="currentTutorial " id="tutdes ">
+            <div>
+                <strong>Title:</strong> {{currentTutorial.title}}</div>
+            <div><strong>Description:</strong> {{currentTutorial.description}}</div>
+            <span>Image</span>
+            <div>
+                <img style="width:300px " height="200px " src="{{ 'data:image/jpg;base64,'+currentTutorial.image.data}}" />
+            </div>
+            <span>Asset</span>
+            <div *ngIf="currentTutorial.assetType === 'video'">
+                <video width="300px " height="200px " src="{{ 'data:video/mp4;base64,'+currentTutorial.asset.data}}" controls>
+                  
+                </video>
+            </div>
+            <div *ngIf="currentTutorial.assetType === 'pdf'">
+                <iframe src="{{'data:doccument/pdf;base64,'+currentTutorial.asset.data}}" controls type="application/pdf" height="300px" width="100%">
+                </iframe>
+            </div>
+
+            <span><strong>Status:</strong> {{currentTutorial.published ? "published " : "pending "}}</span>
+            <div></div>
+            <button [routerLink]="[ '/',currentIndex] ">Edit</button>
+        </div>
+    </div>
+</div>

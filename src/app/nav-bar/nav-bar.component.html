@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand navbar-block navbar-dark">
+    <a class="navbar-brand">Corteva LaserFarm</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink=" ">Articles</a>
+            </li>
+            <li class="nav-item">
+                <!-- <a class="nav-link" routerLink="/addTutorial">Add Article</a>  -->
+                <div ngbDropdown class="dropdown">
+                    <button ngbDropdownToggle class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Upload Articles
+                    </button>
+                    <div ngbDropdownMenu class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" routerLink="/addTutorial">Video</a>
+                        <a class="dropdown-item" routerLink="/doccuments">Documents</a>
+                        <a class="dropdown-item" href="#">Hand Bills</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+    <div>
+        Login
+    </div>
+</nav>

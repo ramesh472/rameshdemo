@@ -1,0 +1,17 @@
+<div *ngIf="currentTutIndex">
+    <div class="submit-form">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" required [(ngModel)]="tutorials[currentTutIndex.params.id].title" name="title">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" required [(ngModel)]="tutorials[currentTutIndex.params.id].description" name="description">
+        </div>
+        <button *ngIf="!tutorials[currentTutIndex.params.id].published" (click)="publishing(true)">Publish</button>
+        <button *ngIf="tutorials[currentTutIndex.params.id].published" (click)="publishing(false)">Published</button>
+        <button (click)="delete(tutorials[currentTutIndex.params.id].id)">Delete</button>
+        <button (click)="updateTutorial(tutorials[currentTutIndex.params.id].id)">Update</button>
+
+    </div>
+</div>
