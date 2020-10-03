@@ -1,0 +1,16 @@
+git clone
+git clone https://github.com/ramesh472/rameshdemo.git
+dir
+cd rameshdemo
+git add ./
+git status
+git commit
+git commit -m "new code"
+git status
+git push
+git pull
+
+history
+hitory > history.txt
+doskey/history
+doskey/history > arun.txt
